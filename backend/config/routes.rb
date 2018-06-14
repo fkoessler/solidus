@@ -123,6 +123,12 @@ Spree::Core::Engine.routes.draw do
     resources :stores, only: [:index, :new, :create, :edit, :update]
 
     resources :return_items, only: [:update]
+    resources :settlements do
+      member do
+        put :accept
+        put :reject
+      end
+    end
 
     resources :taxonomies do
       collection do
